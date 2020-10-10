@@ -15,4 +15,4 @@ Yeeun Kim
 https://editor.p5js.org/yeeunim01/sketches/eyGjLkslg
 
 Juhong Mo
-https://editor.p5js.org/skapzh89/sketches/RMRrLTppe
+https://editor.p5js.org/skapzh89/sketches/NctqbltfI
