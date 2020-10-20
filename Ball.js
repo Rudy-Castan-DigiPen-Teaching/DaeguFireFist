@@ -1,16 +1,18 @@
-/*class Ball {
-  constructor (x, y, width){
-    x = x;
-    y = y;
-    width = width;
-  }
+class Ball{
   
-  draw(){
-    Ball.loadPixels(x,y,width);
-  }
-  
-  move(){
+  constructor(x, y, size) {
+    
+    this.x = x;
+    this.y = y;
+    this.s = size;
     
   }
-}*/
-
+  
+  update() {
+   
+    this.s = map(this.y, 495, 210, 64, 32);
+    this.x = map(this.y, /*경기장 끝*/, /*경기장 끝*/, /*경기장 왼쪽*/, /*경기장 ㄹ오른쪽*/);
+    
+  }
+  
+}
