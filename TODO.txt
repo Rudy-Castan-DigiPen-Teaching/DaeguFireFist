@@ -1,15 +1,15 @@
-make image file stadium.png
-make image file AI-throwing.png
-draw obstacle after the 30sec
-add and apply image Player-throwing
-apply image when player or AI is bumped
-make stage 2
-make image file stage 2 item.png
-draw timer
-draw scoreboard
-draw scoreboard numbers
-draw audience
-ball --> AI, ball goes under the stadium
-  else, ball goes upper the stadium
-***** apply balls bumping simulation
-***** make main-menu.png and screen
+[x] make image file stadium.png
+[ ] make image file AI-throwing.png
+[ ] draw obstacle after the 30sec
+[ ] add and apply image Player-throwing
+[ ] apply image when player or AI is bumped
+[ ] make stage 2
+[x] make image file stage 2 item.png
+[ ] draw timer
+[x] draw scoreboard
+[ ] draw scoreboard numbers
+[ ] draw audience
+[ ] ball --> AI, ball goes under the stadium
+[ ]   else, ball goes upper the stadium
+[ ] ***** apply balls bumping simulation
+[ ] ***** make main-menu.png and screen
