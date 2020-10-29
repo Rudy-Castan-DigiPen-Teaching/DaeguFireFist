@@ -1,3 +1,8 @@
+const Main_Menu = 1;
+const Credits_Screen = 2;
+const Options_Screen = 3;
+const Game = 4;
+
 class MainMenu {
   
   constructor() {
