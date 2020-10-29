@@ -5,6 +5,8 @@ var Osize = 40;
 var throwkey = 0;
 var ballsize = 64;
 
+let CurrentScene = Main_Menu;
+
 function preload() {
   Stadium = loadImage('Image/Stadium.png')
   Ball = loadImage('Image/Ball.png')
@@ -90,6 +92,12 @@ function signal() {
 
 function StartScreen() {
   
+}
+
+function KeyPressed() {
+  if(keyCode == 13) {
+    CurrentScene = Game;
+  }
 }
 
 function mouseClicked() {

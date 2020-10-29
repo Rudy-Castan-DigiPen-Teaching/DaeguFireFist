@@ -10,13 +10,41 @@ class MainMenu {
   }
   
   update() {
-    //엔터키 누르면 게임 시작
+    if()
   }
   
   draw() {
     //메인메뉴 이미지 파일 넣기
   }
   
+}
+
+class OptionScreen {
+	constructor() {
+
+	}
+
+	update() {
+
+	}
+
+	draw() {
+
+	}
+}
+
+class CreditsScreen {
+	constructor() {
+
+	}
+
+	update() {
+
+	}
+
+	draw() {
+		
+	}
 }
 
 class GameScreen {
