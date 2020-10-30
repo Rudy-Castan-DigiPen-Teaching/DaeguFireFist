@@ -1,7 +1,7 @@
 const Main_Menu = 1;
-const Credits_Screen = 2;
-const Options_Screen = 3;
-const Game = 4;
+const Pause_Screen = 2;
+const Game1 = 3;
+const Game2 = 4;
 
 class MainMenu {
   
@@ -10,36 +10,22 @@ class MainMenu {
   }
   
   update() {
-    if()
+
   }
   
   draw() {
-    //메인메뉴 이미지 파일 넣기
+
   }
   
 }
 
-class OptionScreen {
+class PauseScreen {
 	constructor() {
 
 	}
 
 	update() {
-
-	}
-
-	draw() {
-
-	}
-}
-
-class CreditsScreen {
-	constructor() {
-
-	}
-
-	update() {
-
+		
 	}
 
 	draw() {

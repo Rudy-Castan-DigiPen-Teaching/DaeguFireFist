@@ -16,6 +16,7 @@ function preload() {
   Llarva = loadImage('Left.gif')
   Rival_I = loadImage('Rival.png');
   Rival_B = loadImage('Rival bump.gif');
+  Main = loadImage('mainscreen.png');
   //Rival_T = loadImage('');
 }
 
@@ -90,9 +91,9 @@ function signal() {
 
 }
 
-function StartScreen() {
+/*function StartScreen() {
   
-}
+}*/
 
 function KeyPressed() {
   if(keyCode == 13) {
