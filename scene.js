@@ -43,11 +43,11 @@ class CreditsScreen {
 	}
 
 	draw() {
-		
+
 	}
 }
 
-class GameScreen {
+class Stage1 {
   
   constructor() {
     
@@ -61,4 +61,20 @@ class GameScreen {
     
   }
   
+}
+
+class Stage2 {
+
+	constructor() {
+
+	}
+
+	update() {
+
+	}
+
+	draw() {
+
+	}
+
 }
