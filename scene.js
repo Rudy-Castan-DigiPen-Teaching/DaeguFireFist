@@ -3,6 +3,7 @@ const Pause_Screen = 2;
 const Game1 = 3;
 const Game2 = 4;
 
+const Playing = 0;
 const Win = 1;
 const Lose = 2;
 const Draw = 3;

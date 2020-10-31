@@ -18,6 +18,8 @@ var ballPosition = [
 
 let CurrentScene = Main_Menu;
 
+let Result = Playing;
+
 function preload() {
   Stadium = loadImage('Image/Stadium.png')
   Ball = loadImage('Image/Ball.png')
