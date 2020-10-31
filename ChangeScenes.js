@@ -3,14 +3,14 @@ function keyReleased() {
 	if(CurrentScene == Game1) {
 		if(keyCode == 27) {
 			CurrentScene = Pause_Screen;
-			signal = 1;
+			signal = 3;
 		}
 	}
 
 	if(CurrentScene == Game2) {
 		if(keyCode == 27) {
 			CurrentScene = PauseScreen;
-			signal = 2;
+			signal = 4;
 		}
 	}
 
@@ -26,13 +26,13 @@ function keyReleased() {
 		}
 	}
 
-	if(CurrentScene == Pause_Screen && signal == 1) {
+	if(CurrentScene == Pause_Screen && signal == 3) {
 		if(keyCode == 27) {
 			CurrentScene == Game1;
 		}
 	}
 
-	if(CurrentScene == Pause_Screen && signal == 2) {
+	if(CurrentScene == Pause_Screen && signal == 4) {
 		if(keyCode == 27) {
 			CurrentScene == Game2;
 		}

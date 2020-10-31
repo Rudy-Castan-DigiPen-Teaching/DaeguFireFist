@@ -5,6 +5,9 @@ var Osize = 40;
 var throwkey = 0;
 var ballsize = 64;
 
+var WinY = 210;
+var LoseY = 495;
+
 let CurrentScene = Main_Menu;
 
 function preload() {
@@ -35,7 +38,7 @@ function setup() {
   RO = new Robstacle();
   LO = new Lobstacle();
   Rival = new AI(width / 2, 185);
-  B = new Balls(0, 0);
+  // B = new Balls(0, 0);
   B1 = new Balls(225, 210 - ballsize / 2);
   B2 = new Balls(290.75, 210 - ballsize / 2);
   B3 = new Balls(356.5, 210 - ballsize / 2);
@@ -79,6 +82,11 @@ function draw() {
     A = 1;
     this.RO.x = width / 4
   }
+
+  if(B1.y == WinY /*이긴경우*/) {
+    Rsignal += 1;
+  }
+
 }
 
 function signal() {
@@ -97,12 +105,6 @@ function signal() {
 /*function StartScreen() {
   
 }*/
-
-function KeyPressed() {
-  if(keyCode == 13) {
-    CurrentScene = Game;
-  }
-}
 
 function mouseClicked() {
 
