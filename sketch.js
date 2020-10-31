@@ -16,12 +16,15 @@ function preload() {
   Llarva = loadImage('Left.gif')
   Rival_I = loadImage('Rival.png');
   Rival_B = loadImage('Rival bump.gif');
-  Main = loadImage('mainscreen.png');
+  Main = loadImage('Image/mainscreen.png');
+  PauseText = loadImage('Image/pause.png');
   //Rival_T = loadImage('');
 }
 
 function setup() {
   createCanvas(750, 600);
+
+  Main.loadPixels();
 
   Stadium.loadPixels();
   Player_I.loadPixels();
