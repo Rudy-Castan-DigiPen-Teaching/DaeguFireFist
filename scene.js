@@ -3,21 +3,7 @@ const Pause_Screen = 2;
 const Game1 = 3;
 const Game2 = 4;
 
-class MainMenu {
-  
-  constructor() {
-    
-  }
-  
-  update() {
-
-  }
-  
-  draw() {
-
-  }
-  
-}
+var signal = 0;
 
 class PauseScreen {
 	constructor() {
@@ -25,10 +11,23 @@ class PauseScreen {
 	}
 
 	update() {
-		
+
 	}
 
 	draw() {
+
+		push();
+		rectMode(CENTER);
+		strokeWeight(2);
+		stroke(0);
+		fill(0);
+		rect(width / 2, height / 2, width / 2, height / 2);
+		pop();
+
+		push();
+		imageMode(CENTER);
+		image(PauseText, width / 2, height / 2);
+		pop();
 
 	}
 }
