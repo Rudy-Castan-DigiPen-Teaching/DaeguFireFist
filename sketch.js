@@ -1,128 +1,177 @@
+var timeleft = 30;
+var startTime = 0;
+var currentTime = 0;
+var A = 0;
 var RO;
 var LO;
-var A = 0;
-var Osize = 40;
-var throwkey = 0;
-var ballsize = 64;
+var Osize = 80;
 
-var WinY = 210;
-var LoseY = 495;
-
-var ballPosition = [
-[225, 210 - ballsize / 2],
-[290.75, 210 - ballsize / 2],
-[356.5, 210 - ballsize / 2],
-[422.25, 210 - ballsize / 2],
-[488, 210 - ballsize / 2],
-];
-
-let CurrentScene = Main_Menu;
-
-let Result = Playing;
+var score = 0;
+var signal = 0;
+var pause = 0;
 
 function preload() {
-  Stadium = loadImage('Image/Stadium.png')
-  Ball = loadImage('Image/Ball.png')
-  Crowd_C = loadImage('Image/Crowd_Center.JPG')
-  Player_I = loadImage('Image/Player1.png')
-  Rlarva = loadImage('Right.gif')
-  Llarva = loadImage('Left.gif')
-  Rival_I = loadImage('Rival.png');
-  Rival_B = loadImage('Rival bump.gif');
-  Main = loadImage('Image/mainscreen.png');
-  PauseText = loadImage('Image/pause.png');
-  //Rival_T = loadImage('');
+  STADIUM = loadImage('Image/stadium.png');
+  BALL = loadImage('Image/balls.png');
+  TABLE = loadImage('Image/table.png');
+  Rlarva = loadImage('Image/Right.gif');
+  Llarva = loadImage('Image/Left.gif');
+  RIVAL = loadImage('Image/rival.png');
+  RIVAL_B = loadImage('Image/rival bump.gif');
+  TIMER = loadImage('Image/timer.gif');
+  PLAYER = loadImage('Image/penguin 1.png');
+  SCORE = loadImage('Image/sc 0-0.png');
 }
 
 function setup() {
-  createCanvas(750, 600);
+  createCanvas(1750, 1500);
 
-  Main.loadPixels();
-
-  Stadium.loadPixels();
-  Player_I.loadPixels();
-  Crowd_C.loadPixels();
-  Rival_I.loadPixels();
-
-  PLAYER = new Player();
   RO = new Robstacle();
   LO = new Lobstacle();
-  Rival = new AI(width / 2, 185);
-
-  for(let i = 0; i < 10; i ++) {
-    B[i] = new Balls(ballPosition[i]);
-  }
-  /*B1 = new Balls(225, 210 - ballsize / 2);
-  B2 = new Balls(290.75, 210 - ballsize / 2);
-  B3 = new Balls(356.5, 210 - ballsize / 2);
-  B4 = new Balls(422.25, 210 - ballsize / 2);
-  B5 = new Balls(488, 210 - ballsize / 2);*/
-}
-
-function draw() {
-
-  background(Stadium);
-
-  image(Crowd_C, 195, 40, 360, 35)
-  image(Crowd_C, 195, 75, 360, 35)
-
-  this.PLAYER.draw();
-  this.PLAYER.key_is_down();
-
-  Rival.draw();
+  P = new Player();
+  R = new AI(width / 2, 445);
   
-  B1.draw();
-  B2.draw();
-  B3.draw();
-  B4.draw();
-  B5.draw();
+  B1 = new Ball(525, 495);
+  B2 = new Ball(698.75, 495);
+  B3 = new Ball(872.5, 495);
+  B4 = new Ball(1049.25, 495);
+  B5 = new Ball(1220, 495);
+  B6 = new Ball(190, 1200);
+  B7 = new Ball(531.25, 1200);
+  B8 = new Ball(872.5, 1200);
+  B9 = new Ball(1213.75, 1200);
+  B10 = new Ball(1555, 1200);
 
-  switch (A) {
-    case 0:
-      RO.draw()
-      RO.move()
-      break;
-    case 1:
-      LO.draw()
-      LO.move()
-      break;
-  }
-  if (this.LO.x <= width / 4) {
-    A = 0;
-    this.LO.x = width / 4 * 3 - Osize
-  }
-  if (this.RO.x >= width / 4 * 3 - Osize) {
-    A = 1;
-    this.RO.x = width / 4
-  }
+  STADIUM.loadPixels();
+  TABLE.loadPixels();
+  TIMER.loadPixels();
+  SCORE.loadPixels();
 
-  if(B1.y == WinY /*이긴경우*/) {
-    Rsignal += 1;
+  //timer
+  startTime = millis();
+
+  var params = getURLParams();
+  console.log(params);
+  if (params.minute) {
+    var min = params.minute;
+    timeleft = min * 60;
   }
 
-}
+  var timer = select('#timer');
+  timer.html(convertSeconds(timeleft - currentTime));
 
-function signal() {
+  var interval = setInterval(timeIt, 1000);
 
-  if (keyIsPressed === true) {
-    
-    if (keyCode == 90 || keyCode == 88) {
-      throwkey = 1;
-    } else {
-      throwkey = 0;
+  function timeIt() {
+    currentTime = floor((millis() - startTime) / 1000);
+    timer.html(convertSeconds(timeleft - currentTime));
+    if (currentTime == timeleft) {
+
+      clearInterval(interval);
     }
   }
 
 }
 
-/*function StartScreen() {
+function draw() {
+  background(STADIUM);
+
+  push();
+
+  imageMode(CENTER);
+  image(TABLE, width / 2, height / 2 + 100);
+
+  push();
+  scale(0.5);
+  image(TIMER, width, 630);
+  pop();
   
-}*/
+  image(SCORE, width - 250, height / 2 - 50);
 
-function mouseClicked() {
+  pop();
 
-  if (mouseButton == LEFT) {
-    console.log(mouseX, mouseY);
+  //Rival
+  R.draw();
+  
+  //Ball
+  B1.update();
+  B1.draw();
+  
+  B2.update();
+  B2.draw();
+  
+  B3.update();
+  B3.draw();
+  
+  B4.update();
+  B4.draw();
+  
+  B5.update();
+  B5.draw();
+  
+  B6.update();
+  B6.draw();
+  
+  B7.update();
+  B7.draw();
+  
+  B8.update();
+  B8.draw();
+  
+  B9.update();
+  B9.draw();
+  
+  B10.update();
+  B10.draw();
+
+  //player
+  P.update();
+  P.draw();
+
+  //obstacle
+  if (currentTime == timeleft) {
+    switch (A) {
+      case 0:
+        RO.draw()
+        RO.move()
+        break;
+      case 1:
+        LO.draw()
+        LO.move()
+        break;
+    }
   }
 
+  if (this.LO.x <= width / 5) {
+    A = 0;
+    this.LO.x = width / 5 * 4 - Osize
+  }
+  if (this.RO.x >= width / 5 * 4 - Osize) {
+    A = 1;
+    this.RO.x = width / 5
+  }
+  
+  //scoreboard
+  if(score == 1) {
+    SCORE = loadImage('Image/sc 0-1.png');
+    score += 0.5;
+  } else if(score == 3) {
+    SCORE = loadImage('Image/sc 0-2.png');
+    score += 0.5;
+  }
+
+}
+
+function keyPressed() {
+  if(keyCode == 90) {
+    signal += 1;
+  }
+  
+  if(keyCode == 27) {
+    pause += 1;
+  }
+}
+
+function mouseClicked() {
+  score += 1;
 }
